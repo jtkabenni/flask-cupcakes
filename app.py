@@ -38,7 +38,6 @@ def list_all_cupcakes():
 
 @app.route("/api/cupcakes", methods = ["POST"])
 def create_cupcakes():
-  # form = AddCupcakeForm()
   cupcake = Cupcake(flavor = request.json["flavor"], size = request.json["size"], rating = request.json["rating"],image = request.json["image"])
   db.session.add(cupcake)
   db.session.commit()

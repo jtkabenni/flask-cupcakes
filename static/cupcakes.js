@@ -14,16 +14,19 @@ form.addEventListener("submit", async function (evt) {
   let flavor = document.querySelector("#flavor").value;
   let size = document.querySelector("#size").value;
   let rating = document.querySelector("#rating").value;
-  let image = (document.querySelector("#image").value = ""
-    ? Null
-    : document.querySelector("#image").value);
-
-  const response = await axios.post(`${base_url}/cupcakes`, {
+  let image =
+    document.querySelector("#image").value === ""
+      ? "https://tinyurl.com/demo-cupcake"
+      : document.querySelector("#image").value;
+  console.log(flavor, size, rating, image);
+  let cupcakeData = {
     flavor: flavor,
     size: size,
     rating: rating,
     image: image,
-  });
+  };
+  console.log(cupcakeData);
+  const response = await axios.post(`${base_url}/cupcakes`, cupcakeData);
   const data = response.data;
 
   createCupcake(data.cupcake);
@@ -36,12 +39,9 @@ function createCupcake(cupcake) {
   const img = document.createElement("img");
   img.src = cupcake.image;
   const title = document.createElement("p");
-
   title.innerHTML = `${cupcake.flavor} - ${cupcake.size} - ${cupcake.rating} stars`;
-  if (cupcake.image) {
-    div.append(img);
-  }
-  cupcakes.append(title);
+  div.append(img);
+  div.append(title);
   cupcakes.append(div);
 }
 
