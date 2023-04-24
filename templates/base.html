@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/static/app.css">
+</head>
+
+<body>
+  <div class="cupcakes">
+    <h1>Cupcakes</h1>
+    <div class="cupcake-list"></div>
+  </div>
+  <form id="cupcake_form">
+    <h3>Add new cupcake</h3>
+    <div>
+      <label for="flavor">Flavor: </label>
+      <input name="flavor" id="flavor">
+    </div>
+
+    <div>
+      <label for="size">Size: </label>
+      <input name="size" id="size">
+    </div>
+
+    <div>
+      <label for="rating">Rating: </label>
+      <input type="number" name="rating" id="rating">
+    </div>
+
+    <div>
+      <label for="image">Image: </label>
+      <input name="image" id="image">
+    </div>
+    <button>Add cupcake</button>
+
+  </form>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="/static/cupcakes.js"></script>
+</body>
+
+</html>
